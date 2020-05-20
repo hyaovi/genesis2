@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  font-size: 90%;
+  font-weight: 500;
+  background: darkcyan;
+  font-family: sans-serif; }
