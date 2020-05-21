@@ -6,6 +6,8 @@
 
 body {
   font-size: 90%;
-  font-weight: 500;
-  background: darkcyan;
-  font-family: sans-serif; }
+  font-weight: bolder;
+  background: lightblue;
+  font-family: sans-serif;
+  max-width: 960px;
+  margin: auto; }
