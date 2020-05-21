@@ -4,12 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satic Website</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Gravity | Pixel Perfect Layout</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-  <h2>Helodd!!ss</h2>
+  <header class="navigation">
+    <svg class="navigation__logo" width="75" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9 0C3.648 0 0 3.648 0 9c0 5.256 3.72 8.856 9 8.856 2.376 0 4.752-.48 7.008-1.68V7.488H9.504v2.736h3.48v4.008c-1.2.672-2.688.888-3.96.888-3.648 0-5.856-2.808-5.856-6.312C3.168 5.424 5.52 2.736 9 2.736c1.584 0 3.288.552 4.44 1.656l2.232-2.256C13.872.504 11.352 0 9 0zM24.664 5.616c-1.512 0-2.784.792-3.408 2.112h-.048V5.904h-2.88v11.52h2.88v-6c0-1.536.912-3.072 3.096-3.072.432 0 .84.072 1.392.216V5.784c-.384-.096-.6-.168-1.032-.168zM31.528 5.616c-2.256 0-3.864.792-4.896 1.848l1.512 1.512a4.577 4.577 0 013.072-1.2c1.584 0 2.64.792 2.64 2.136v.336h-.888c-4.944 0-7.08 1.344-7.08 4.008 0 2.112 1.824 3.456 4.2 3.456 1.536 0 2.88-.576 3.696-1.872h.072v1.584h2.592v-6.888c0-2.712-.984-4.92-4.92-4.92zm-2.76 8.424c0-1.224 1.536-1.776 4.08-1.776h.84v.72c0 1.464-.912 2.568-2.88 2.568-1.08 0-2.04-.528-2.04-1.512zM36.986 5.904l4.704 11.52h3.072l4.536-11.52h-2.952l-3.096 8.064h-.048L40.13 5.904h-3.144zM51.456.264c-1.032 0-1.824.792-1.824 1.728 0 .936.792 1.728 1.824 1.728s1.872-.696 1.872-1.728c0-.984-.816-1.728-1.872-1.728zm-1.416 5.64v11.52h2.88V5.904h-2.88zM56.258 2.568v3.336h-2.376v2.448h2.376v5.4c0 2.904 1.056 3.96 3.768 3.96.648 0 1.728-.12 2.28-.384v-2.424c-.24.192-.84.36-1.56.36-1.128 0-1.608-.576-1.608-1.8V8.352h3.168V5.904h-3.168V2.568h-2.88z"
+        fill="#222" />
+      <path
+        d="M61.994 5.904l4.92 11.616-.504 1.248c-.528 1.272-.816 1.824-2.328 1.824-.504 0-1.008-.12-1.464-.288l-.36 2.592c.72.192 1.464.288 2.208.288 2.88 0 3.648-1.416 4.584-3.792l5.256-13.488h-3l-2.88 7.992h-.048l-3.216-7.992h-3.168z"
+        fill="#222" />
+    </svg>
+    <span class="navigation__icon">
+      <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M0 8.5a8.5 8.5 0 1115.453 4.89l3.44 3.437a1 1 0 010 1.415l-.649.647a1 1 0 01-1.413 0l-3.44-3.437A8.5 8.5 0 010 8.5zm8.5 6.071A6.078 6.078 0 012.429 8.5 6.078 6.078 0 018.5 2.429 6.078 6.078 0 0114.571 8.5 6.078 6.078 0 018.5 14.571z"
+          fill="#222" />
+      </svg>
+
+    </span>
+    <button class="navigation__button">
+      <svg width="34" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#222" d="M0 0h34v3H0zM16 11h18v3H16z" />
+      </svg>
+    </button>
+    <nav class="navigation__links">
+      <ul>
+        <li><a href="/">Home</a>></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <img class="hero__video" src="assets/video.png" />
+    <header class="hero__heading">
+      <div class="hero__text-box">
+        <h1 class="heading-primary">Work around you and your team</h1>
+        <p class="hero__text text">
+          From ads that dance or sing to MTV-like commercials, online
+          advertisers are now using a new type of technology “rich media” to
+          attract consumers.
+        </p>
+        <button class="hero__button btn btn--purple">get started</button>
+      </div>
+      <div class="hero__loader">
+        <p>01</p>
+        <progress value="40" max="100"></progress>
+        <p>03</p>
+      </div>
+    </header>
+    <img class="hero__image" src="assets/groove.png" />
+  </section>
 </body>
 
 </html>
