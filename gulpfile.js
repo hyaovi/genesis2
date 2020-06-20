@@ -46,18 +46,12 @@ const browserSyncReload = (cb) => {
   cb();
 };
 
-// WATCHERS
-function watchSass() {
+// WATCHER
+function watchFiles() {
   watch(paths.src.sass, compileSass);
-}
-
-function watchHtml() {
   watch(paths.src.html, browserSyncReload);
-}
-function watchJS() {
   watch(paths.src.js, browserSyncReload);
 }
-
 // LAUNCH SERVER
 function staticServer() {
   browserSync.init({
@@ -69,10 +63,7 @@ function staticServer() {
 
 // EXPORTS
 exports.css = minifyCss;
-exports.sass = watchSass;
 exports.default = function startGulpDefault() {
   staticServer();
-  watchSass();
-  watchHtml();
-  watchJS();
+  watchFiles();
 };
