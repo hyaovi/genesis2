@@ -17,11 +17,13 @@ const paths = {
     jsFiles: `${DEV_BASE_DIR}/js/**/*.js`,
     css: `${DEV_BASE_DIR}/css`,
     cssFiles: `${DEV_BASE_DIR}/css/**/*.css`,
+    media: `${DEV_BASE_DIR}/media/**/*`,
   },
   dest: {
     home: `${PROD_BASE_DIR}`,
     css: `${PROD_BASE_DIR}/css`,
     js: `${PROD_BASE_DIR}/js/`,
+    media: `${PROD_BASE_DIR}/media/`,
   },
 };
 
@@ -46,18 +48,12 @@ const browserSyncReload = (cb) => {
   cb();
 };
 
-// WATCHERS
-function watchSass() {
+// WATCHER
+function watchFiles() {
   watch(paths.src.sass, compileSass);
-}
-
-function watchHtml() {
   watch(paths.src.html, browserSyncReload);
-}
-function watchJS() {
   watch(paths.src.js, browserSyncReload);
 }
-
 // LAUNCH SERVER
 function staticServer() {
   browserSync.init({
@@ -69,10 +65,20 @@ function staticServer() {
 
 // EXPORTS
 exports.css = minifyCss;
-exports.sass = watchSass;
 exports.default = function startGulpDefault() {
   staticServer();
-  watchSass();
-  watchHtml();
-  watchJS();
+  watchFiles();
 };
+// BUILD
+function build(cb) {
+  src(paths.src.html).pipe(dest(paths.dest.home));
+  src(paths.src.sass)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssAutoprefixer({ cascade: false }))
+    .pipe(dest(paths.dest.css));
+  src(paths.src.js).pipe(dest(paths.dest.js));
+  src(paths.src.media).pipe(dest(paths.dest.media));
+
+  return cb();
+}
+exports.build = build;
