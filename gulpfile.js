@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const cleanCss = require('gulp-clean-css');
 const cssAutoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
 
 sass.compiler = require('node-sass');
 
@@ -69,6 +70,13 @@ exports.default = function startGulpDefault() {
   staticServer();
   watchFiles();
 };
+
+// IMAGE COMPRESSION
+function compressImage(cb) {
+  src(paths.src.media).pipe(imagemin()).pipe(dest(paths.dest.media));
+  return cb();
+}
+
 // BUILD
 function build(cb) {
   src(paths.src.html).pipe(dest(paths.dest.home));
@@ -77,8 +85,8 @@ function build(cb) {
     .pipe(cssAutoprefixer({ cascade: false }))
     .pipe(dest(paths.dest.css));
   src(paths.src.js).pipe(dest(paths.dest.js));
-  src(paths.src.media).pipe(dest(paths.dest.media));
-
+  compressImage(cb);
   return cb();
 }
+
 exports.build = build;
